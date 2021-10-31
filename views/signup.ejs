@@ -50,11 +50,19 @@
     </nav>
 
     <div class="container">
-        <form>
+        <form action="/signup" method="POST">
             <fieldset>
                 <br/>
                 <legend>Register Yourself</legend>
                 
+                <% if(typeof err !='undefined' ){ %>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong> Error </strong>
+                        <%= err %>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <% } %>
+
                 <div class="form-group">
                     <label for="username" class="form-label mt-4">Enter your Email address</label>
                     <input type="email" class="form-control" id="username" aria-describedby="emailHelp"
@@ -66,21 +74,21 @@
                 <div class="form-group">
                     <label for="username" class="form-label mt-4">username</label>
                     <input type="text" class="form-control" id="username" aria-describedby="emailHelp"
-                        placeholder="Enter email" name = "user">
+                        placeholder="Enter email" name = "username">
                 </div>
                 
                 <div class="form-group">
                     <label for="password" class="form-label mt-4">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Password">
+                    <input type="password" name = "password" class="form-control" id="password" placeholder="Password">
                 </div>
 
                 <div class="form-group">
                     <label for="password" class="form-label mt-4">Confirm Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Password">
+                    <input type="password" class="form-control" id="password" name="confirmpassword" placeholder="Password">
                 </div>
                 
                <div><br/>
-                <a href="/signup"><button type="button" class="btn btn-success">SignUp</button>
+                <input type="submit" class="btn btn-lg btn-outline-primary" value="Register">
                 <a href=""><button type="button" class="btn btn-secondary">Continue with google</button></a>
                 <br/><br/>
                 <p>Already Registered?<a href="/login"><button type="button" class="btn btn-success">Login</button></a></p>

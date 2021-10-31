@@ -10,7 +10,26 @@ router.get('/login',(req,res) => {
 });
 
 router.get('/signup',(req,res) => {
-    res.render("signup");
+    res.render("signup", { });
+});
+
+router.get('/profile',(req,res) => {
+    res.render('profile');
+});
+
+router.post('/signup',(req,res) => {
+    // get all the values
+    const {email, username, password, confirmpassword } = req.body;
+
+    // check if the one empty
+
+    if(!email || !username || !password || !confirmpassword){
+        res.render("signup", {err : "All fields are required" });
+    } else if(password != confirmpassword){
+        res.render("signup", {err :"Password don't match"});
+    }else{
+        res.render("signup", {err:"All set"});
+    }
 });
 
 module.exports = router;
