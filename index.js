@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const csrf = require('csurf');
+
 const cookieParser = require('cookie-parser');
 const expressSession = require('express-session');
 var MemoryStore = require('memorystore')(expressSession)
@@ -28,7 +28,7 @@ app.use(expressSession({
     store: new MemoryStore(),
 }));
 
-app.use(csrf());
+
 app.use(passport.initialize());
 app.use(passport.session());
 
