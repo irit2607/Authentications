@@ -63,7 +63,7 @@ router.post('/signup', (req, res) => {
                             email: email,
                             password: hash,
                             googleId: null,
-                            provider: 'email',
+                            provide: 'email',
                         }).save((err, data) => {
                             if (err) throw err;
                             // login the user

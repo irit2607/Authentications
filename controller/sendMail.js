@@ -3,8 +3,8 @@ const nodemailer = require('nodemailer');
 var transport = nodemailer.createTransport({
     service : 'gmail',
     auth : {
-        user : "user@gmail.com",
-        pass : "123456",
+        user : "iritkushwaha2607@gmail.com",
+        pass : "EshuIRIT10*",
     }
 }); // transport mail
 
@@ -13,13 +13,13 @@ module.exports.sendVerifyEmail = async(email,token) =>{
 
     console.log(url);
     
-    // await transport.sendMail({
-    //     from : "Email",
-    //     to : email,
-    //     subject : "Verify your account",
-    //     text : `Click this link to verify : ${url}`,
-    //     html : `<h3>
-    //     Click the link to verify : ${url}
-    //     </h3>`,
-    // });
+    await transport.sendMail({
+        from : "Email",
+        to : email,
+        subject : "Verify your account",
+        text : `Click this link to verify : ${url}`,
+        html : `<h3>
+        Click the link to verify : ${url}
+        </h3>`,
+    });
 }
